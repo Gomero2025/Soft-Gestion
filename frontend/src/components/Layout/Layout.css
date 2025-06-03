@@ -1,0 +1,263 @@
+/* Layout principal */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 280px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 80px;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 280px;
+  background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.logo-collapsed {
+  display: flex;
+  justify-content: center;
+}
+
+.empresa-info {
+  font-size: 0.875rem;
+}
+
+.empresa-nombre {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.empresa-cuit {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+}
+
+/* Navegación */
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.nav-item-container {
+  margin-bottom: 0.25rem;
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0 !important;
+  border: none !important;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.nav-item.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white !important;
+  border-right: 3px solid #60a5fa;
+}
+
+.nav-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-icon {
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  flex: 1;
+  text-align: left;
+}
+
+.nav-arrow {
+  margin-left: auto;
+}
+
+.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+.collapsed .nav-label,
+.collapsed .nav-arrow {
+  display: none;
+}
+
+/* Submenú */
+.submenu {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.submenu-item {
+  color: rgba(255, 255, 255, 0.7) !important;
+  padding: 0.5rem 1rem 0.5rem 3rem !important;
+  font-size: 0.875rem;
+  border-radius: 0 !important;
+  border: none !important;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+}
+
+.submenu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.submenu-item.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white !important;
+}
+
+.submenu-icon {
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Footer del sidebar */
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.125rem;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Header */
+.header-navbar {
+  height: 60px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-breadcrumb {
+  font-size: 0.875rem;
+}
+
+.badge-sm {
+  font-size: 0.6rem;
+  padding: 0.2em 0.4em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .main-content.sidebar-collapsed {
+    margin-left: 0;
+  }
+}
+
+/* Scrollbar personalizado para el sidebar */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
